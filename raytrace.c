@@ -9,8 +9,11 @@ char	shadowRayTrace(t_scene *scene, double distance, t_intersectInfo *i)
 	
 	lightRay = RAY	(
 						scene->light->origin,
-						normalize(SUB(i->point, scene->light->origin))
+
+						normalize((SUB(i->point, scene->light->origin)))
 					);
+
+//	printf("%lf %lf %lf %lf %lf %lf\n", scene->light->origin.x, scene->light->origin.y, lightRay.direction.x, lightRay.direction.y, i->point.x, i->point.y);
 	if (!(checkSphereShadows(lightRay, scene->spheres, distance)))
 		return (0);
 	if (!(checkCylinderShadows(lightRay, scene->cylinders, distance)))

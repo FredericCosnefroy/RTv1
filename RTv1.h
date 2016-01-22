@@ -4,8 +4,32 @@
 #include <stdio.h>
 #include <math.h>
 #include <limits.h>
-#include <SDL2/SDL.h>
+//#include <SDL2/SDL.h>
+#include "./mlx/mlx.h"
+#include <unistd.h>
+#include <stdlib.h>
 
+#define KEY_ESC						53
+#define KEY_LEFT					123
+#define KEY_RIGHT					124
+
+#define RED							g_colors[0]
+#define GREEN						g_colors[1]
+#define BLUE						g_colors[2]
+#define YELLOW						g_colors[3]
+#define PURPLE						g_colors[4]
+#define PINK						g_colors[5]
+#define CYAN						g_colors[6]
+
+#define S_RED						g_colors[7]
+#define S_GREEN						g_colors[8]
+#define S_BLUE						g_colors[9]
+#define S_YELLOW					g_colors[10]
+#define S_PURPLE					g_colors[11]
+#define S_PINK						g_colors[12]
+#define S_CYAN						g_colors[13]
+
+#define MAX_SCENES					9
 
 #define INVSQRTF(x)					(1.0f / sqrtf(x))
 
@@ -76,11 +100,11 @@
 #define ADD_CYLINDER(cylinder)		(lstadd(&(scene->cylinders), &cylinder, sizeof(t_cylinder)))
 #define ADD_CONE(cone)				(lstadd(&(scene->cones), &cone, sizeof(t_cone)))
 
-typedef struct s_env
+typedef struct	s_env
 {
-	SDL_Window		*screen;
-	SDL_Renderer	*renderer;
-} t_env;
+	void	*mlx;
+	void	*win;
+}				t_env;
 
 typedef struct s_vector
 {
@@ -188,6 +212,11 @@ t_scene				*init_scene1(void);
 t_scene				*init_scene2(void);
 t_scene				*init_scene3(void);
 t_scene				*init_scene4(void);
+t_scene				*init_scene5(void);
+t_scene				*init_scene6(void);
+t_scene				*init_scene7(void);
+t_scene				*init_scene8(void);
+t_scene				*init_scene9(void);
 
 t_camera			*createCamera(t_vector position);
 t_light				*createLight(t_vector position, int radius);
@@ -219,5 +248,7 @@ double				ttan(double angle);
 t_vector 			mult(t_vector v, double val);
 t_vector			normalize(t_vector const v);
 char 				find_roots(double A, double B, double C, double *t);
+
+t_env				win_init();
 
 #endif

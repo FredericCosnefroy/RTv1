@@ -28,11 +28,10 @@ void			iterate_pixels(t_env env, t_scene *scene)
 		while (y < SCREEN_HEIGHT)
 		{
 			color = rayTrace(scene, getRay(scene->camera, x, y));
-			SDL_SetRenderDrawColor(env.renderer, 255 * color.r, 255 * color.g, 255 * color.b, 0);
-			SDL_RenderDrawPoint(env.renderer, x, y);
+			mlx_pixel_put(env.mlx, env.win, x, y,
+				((int)(255 * color.r) << 16) | ((int)(255 * color.g) << 8) | ((int)(255 * color.b)));
 			y++;
 		}
 		x++;
 	}
-	SDL_RenderPresent(env.renderer);
 }
