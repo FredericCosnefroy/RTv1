@@ -16,7 +16,7 @@ t_scene		*init_scene1(void)
 {
 	t_scene		*scene;
 
-	scene = createScene(createCamera(VEC(0, 0, -50)));
+	scene = create_scene(create_camera(VEC(0, 0, -50)));
 
 	ADD_SPHERE(SPHERE(VEC(0, 0, 3), 5, RED));
 	ADD_PLANE(PLANE(VEC(0, 1, 0), VEC(0, 5, 0), BLUE));
@@ -27,9 +27,9 @@ t_scene		*init_scene2(void)
 {
 	t_scene		*scene;
 
-	scene = createScene(createCamera(VEC(0, 0, -50)));
+	scene = create_scene(create_camera(VEC(0, 0, -50)));
 
-	addLight(scene, VEC(10, -5, -50), 1000);
+	add_light(scene, VEC(10, -5, -50), 1000);
 	ADD_SPHERE(SPHERE(VEC(0, 0, 3), 5, RED));
 	ADD_PLANE(PLANE(VEC(0, 1, 0), VEC(0, 5, 0), BLUE));
 	return (scene);
@@ -39,9 +39,9 @@ t_scene		*init_scene3(void)
 {
 	t_scene		*scene;
 
-	scene = createScene(createCamera(VEC(0, 0, -50)));
+	scene = create_scene(create_camera(VEC(0, 0, -50)));
 
-	addLight(scene, VEC(10, -5, -50), 1000);
+	add_light(scene, VEC(10, -5, -50), 1000);
 	ADD_SPHERE(SPHERE(VEC(0, 0, 3), 5, S_RED));
 	ADD_PLANE(PLANE(VEC(0, 1, 0), VEC(0, 5, 0), BLUE));
 	return (scene);
@@ -51,8 +51,8 @@ t_scene		*init_scene4(void)
 {
 	t_scene		*scene;
 
-	scene = createScene(createCamera(VEC(40, -20, 50)));
-	addLight(scene, VEC(-5, -5, -50), 1000);
+	scene = create_scene(create_camera(VEC(40, -20, 50)));
+	add_light(scene, VEC(-5, -5, -50), 1000);
 	ADD_SPHERE(SPHERE(VEC(0, 0, 3), 5, S_RED));
 	ADD_PLANE(PLANE(VEC(0, 1, 0), VEC(0, 5, 0), BLUE));
 	return (scene);
@@ -63,10 +63,10 @@ t_scene		*init_scene5(void)
 {
 	t_scene		*scene;
 
-	scene = createScene(createCamera(VEC(0, 0, -100)));
+	scene = create_scene(create_camera(VEC(0, 0, -100)));
 
-	addLight(scene, VEC(25, 0, -50), 1000);
-	addLight(scene, VEC(-25, 0, -50), 1000);
+	add_light(scene, VEC(25, 0, -50), 1000);
+	add_light(scene, VEC(-25, 0, -50), 1000);
 
 	ADD_CONE(CONE(VEC(0, 0, 0), VEC(0, 1, 0), 30, S_YELLOW));
 	ADD_CYLINDER(CYLINDER(VEC(25, 0, 25), VEC(0, 1, 0), 4, S_PINK));
@@ -83,8 +83,8 @@ t_scene		*init_scene6(void)
 {
 	t_scene		*scene;
 
-	scene = createScene(createCamera(VEC(0, 0, -100)));
-	addLight(scene, VEC(-7, -20, -30), 1000);
+	scene = create_scene(create_camera(VEC(0, 0, -100)));
+	add_light(scene, VEC(-7, -20, -30), 1000);
 
 	ADD_SPHERE(SPHERE(VEC(10, -5, 3), 6, S_RED));
 	ADD_SPHERE(SPHERE(VEC(5, 12, 17), 4, S_PURPLE));
@@ -102,9 +102,9 @@ t_scene		*init_scene7(void)
 {
 	t_scene		*scene;
 
-	scene = createScene(createCamera(VEC(10, 10, -30)));
+	scene = create_scene(create_camera(VEC(10, 10, -30)));
 	ADD_SPHERE(SPHERE(VEC(10, -5, 3), 6, S_RED));
-	addLight(scene, VEC(-5, -5, -50), 1000);
+	add_light(scene, VEC(-5, -5, -50), 1000);
 	ADD_CYLINDER(CYLINDER(VEC(0, 10, 18), VEC(1, 0, 1), 2, S_PINK));
 	ADD_CONE(CONE(VEC(0, 0, 25), VEC(0, 1, 0), 30, S_YELLOW));
 	ADD_PLANE(PLANE(VEC(0, 1, 0), VEC(0, 20, 0), GREEN));
@@ -116,8 +116,8 @@ t_scene		*init_scene8(void)
 {
 	t_scene		*scene;
 
-	scene = createScene(createCamera(VEC(0, 0, -100)));
-	addLight(scene, VEC(-5, -5, -50), 1000);
+	scene = create_scene(create_camera(VEC(0, 0, -100)));
+	add_light(scene, VEC(-5, -5, -50), 1000);
 	ADD_CYLINDER(CYLINDER(VEC(0, 10, 18), VEC(1, 0, 1), 2, S_PINK));
 	ADD_CONE(CONE(VEC(0, 0, 25), VEC(0, 1, 0), 30, S_YELLOW));
 	ADD_PLANE(PLANE(VEC(0, 1, 0), VEC(0, 20, 0), GREEN));
@@ -130,8 +130,8 @@ t_scene		*init_scene9(void)
 	t_scene		*scene;
 	int 		i;
 
-	scene = createScene(createCamera(VEC(0, 0, -100)));
-	addLight(scene, VEC(0, 0, -50), 1000);
+	scene = create_scene(create_camera(VEC(0, 0, -100)));
+	add_light(scene, VEC(0, 0, -50), 1000);
 	i = 0;
 	while (i < 8)
 	{

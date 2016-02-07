@@ -54,7 +54,7 @@ static char		get_shadow_coeff(t_scene *scene, t_intersectInfo *o)
 	while (lights)
 	{
 		distance = DIST(((t_light *)lights->data)->origin, o->point);
-		if (!shadowRayTrace(scene, lights->data, distance, o))
+		if (!shadow_raytrace(scene, lights->data, distance, o))
 			shadows++;
 		lights = lights->next;
 	}

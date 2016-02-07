@@ -19,7 +19,7 @@ void	check_planes(t_ray ray, t_list *planes, t_intersectInfo **o, \
 
 	while (planes)
 	{
-		i = planeIntersection(((t_plane *)planes->data), ray);
+		i = plane_intersection(((t_plane *)planes->data), ray);
 		if (i && i->t > 0 && i->t < *max)
 		{
 			*max = i->t;
@@ -39,7 +39,7 @@ void	check_spheres(t_ray ray, t_list *spheres, t_intersectInfo **o,
 
 	while (spheres)
 	{
-		i = sphereIntersection(((t_sphere *)spheres->data), ray);
+		i = sphere_intersection(((t_sphere *)spheres->data), ray);
 		if (i && i->t > 0 && i->t < *max)
 		{
 			*max = i->t;
@@ -59,7 +59,7 @@ void	check_cylinders(t_ray ray, t_list *cylinders, t_intersectInfo **o,
 
 	while (cylinders)
 	{
-		i = cylinderIntersection(((t_cylinder *)cylinders->data), ray);
+		i = cylinder_intersection(((t_cylinder *)cylinders->data), ray);
 		if (i && i->t > 0 && i->t < *max)
 		{
 			*max = i->t;
@@ -79,7 +79,7 @@ void	check_cones(t_ray ray, t_list *cones, t_intersectInfo **o,
 
 	while (cones)
 	{
-		i = coneIntersection(((t_cone *)cones->data), ray);
+		i = cone_intersection(((t_cone *)cones->data), ray);
 		if (i && i->t > 0 && i->t < *max)
 		{
 			*max = i->t;

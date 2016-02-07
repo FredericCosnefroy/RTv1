@@ -69,14 +69,12 @@
 
 # define MAG(v)					sqrt(v.x * v.x + v.y * v.y + v.z + v.z)
 # define NEG(v)					(VEC(-v.x, -v.y, -v.z))
-# define DOT_PROD(v1, v2)		((v1.x * v2.x) +	\
-								(v1.y * v2.y) +		\
-								(v1.z * v2.z))		\
-# define CROSS_PROD(v1, v2)		(VEC(								\
-									v1.y * v2.z - v1.z * v2.y,		\
+# define DOT_PROD(v1, v2)		((v1.x * v2.x) +					\
+								(v1.y * v2.y) +						\
+								(v1.z * v2.z))		
+#define CROSS_PROD(v1, v2)		(VEC(v1.y * v2.z - v1.z * v2.y,		\
 									v1.z * v2.x - v1.x * v2.z,		\
-									v1.x * v2.y - v1.y * v2.x)		\
-								)
+									v1.x * v2.y - v1.y * v2.x))
 # define ADD(v1, v2)			(VEC(v1.x + v2.x, v1.y + v2.y, v1.z + v2.z))
 # define MUL(v, val)			(VEC(v.x * val, v.y * val, v.z * val))
 # define SUB(v1, v2)			(VEC(v1.x - v2.x, v1.y - v2.y, v1.z - v2.z))
@@ -84,7 +82,7 @@
 # define SQR(v)					v.x * v.x + v.y * v.y + v.z * v.z
 # define DIST(p1, p2)			(sqrt(pow(p2.x - p1.x, 2) +			\
 									pow(p2.y - p1.y, 2) +			\
-									pow(p2.z - p1.z, 2)))			\
+									pow(p2.z - p1.z, 2)))			
 # define DEFAULT_RAY			((t_ray){D_VEC, X_VEC})
 # define RAY(ori, dir)			((t_ray){ori, dir})
 

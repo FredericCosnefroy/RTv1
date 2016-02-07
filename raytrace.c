@@ -20,11 +20,11 @@ char	shadow_raytrace(t_scene *scene, t_light *light, double distance,
 	t_ray				light_ray;
 
 	light_ray = RAY(light->origin, normalize((SUB(i->point, light->origin))));
-	if (!(checkSphereShadows(light_ray, scene->spheres, distance)))
+	if (!(check_sphere_shadows(light_ray, scene->spheres, distance)))
 		return (0);
-	if (!(checkCylinderShadows(light_ray, scene->cylinders, distance)))
+	if (!(check_cylinder_shadows(light_ray, scene->cylinders, distance)))
 		return (0);
-	if (!(checkConeShadows(light_ray, scene->cones, distance)))
+	if (!(check_cone_shadows(light_ray, scene->cones, distance)))
 		return (0);
 	return (1);
 }
