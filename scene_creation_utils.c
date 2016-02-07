@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   scene_creation_utils.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fcosnefr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/02/07 19:03:04 by fcosnefr          #+#    #+#             */
+/*   Updated: 2016/02/07 19:03:06 by fcosnefr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "RTv1.h"
 
-t_camera	*createCamera(t_vector position)
+t_camera	*create_camera(t_vector position)
 {
 	t_camera	*camera;
 
@@ -12,20 +24,16 @@ t_camera	*createCamera(t_vector position)
 	return (camera);
 }
 
-t_light		*createLight(t_vector position, int radius)
+void		add_light(t_scene *scene, t_vector position, int radius)
 {
-	t_light		*light;
-
-	light = (t_light *)malloc(sizeof(t_light));
-	*light = LIGHT(position, radius);
-	return (light);
+	lstadd(&scene->lights, &LIGHT(position, radius), sizeof(t_light));
 }
 
-t_scene		*createScene(t_camera *camera, t_light *light)
+t_scene		*create_scene(t_camera *camera)
 {
 	t_scene		*scene;
 
 	scene = (t_scene *)malloc(sizeof(t_scene));
-	*scene = SCENE(camera, light);
+	*scene = SCENE(camera);
 	return (scene);
 }

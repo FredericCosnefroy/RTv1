@@ -1,41 +1,47 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   raytrace.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fcosnefr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/02/07 18:59:03 by fcosnefr          #+#    #+#             */
+/*   Updated: 2016/02/07 18:59:05 by fcosnefr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "RTv1.h"
 
-
-char	shadowRayTrace(t_scene *scene, double distance, t_intersectInfo *i)
+char	shadow_raytrace(t_scene *scene, t_light *light, double distance,
+	t_intersectInfo *i)
 {
 	t_list				*tmp;
 	t_intersectInfo		*li;
-	t_ray				lightRay;
-	
-	lightRay = RAY	(
-						scene->light->origin,
+	t_ray				light_ray;
 
-						normalize((SUB(i->point, scene->light->origin)))
-					);
-
-//	printf("%lf %lf %lf %lf %lf %lf\n", scene->light->origin.x, scene->light->origin.y, lightRay.direction.x, lightRay.direction.y, i->point.x, i->point.y);
-	if (!(checkSphereShadows(lightRay, scene->spheres, distance)))
+	light_ray = RAY(light->origin, normalize((SUB(i->point, light->origin))));
+	if (!(checkSphereShadows(light_ray, scene->spheres, distance)))
 		return (0);
-	if (!(checkCylinderShadows(lightRay, scene->cylinders, distance)))
+	if (!(checkCylinderShadows(light_ray, scene->cylinders, distance)))
 		return (0);
-	if (!(checkConeShadows(lightRay, scene->cones, distance)))
+	if (!(checkConeShadows(light_ray, scene->cones, distance)))
 		return (0);
 	return (1);
 }
 
-t_color		rayTrace(t_scene *scene, t_ray ray)
+t_color	raytrace(t_scene *scene, t_ray ray)
 {
-	t_color			pixelColor;
+	t_color			pixel_color;
 	t_intersectInfo	*o;
 	t_list			*tmp;
 	double			max;
 
 	o = NULL;
 	max = INT_MAX;
-	checkPlanes(ray, scene->planes, &o, &max);
-	checkSpheres(ray, scene->spheres, &o, &max);
-	checkCylinders(ray, scene->cylinders, &o, &max);
-	checkCones(ray, scene->cones, &o, &max);
-	pixelColor = getPixelColor(scene, o, ray);
-	return (pixelColor);
+	check_planes(ray, scene->planes, &o, &max);
+	check_spheres(ray, scene->spheres, &o, &max);
+	check_cylinders(ray, scene->cylinders, &o, &max);
+	check_cones(ray, scene->cones, &o, &max);
+	pixel_color = get_pixel_color(scene, o, ray);
+	return (pixel_color);
 }

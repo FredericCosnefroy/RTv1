@@ -1,6 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_shape_collisions.c                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fcosnefr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/02/07 18:39:52 by fcosnefr          #+#    #+#             */
+/*   Updated: 2016/02/07 18:39:54 by fcosnefr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "RTv1.h"
 
-void checkPlanes(t_ray ray, t_list *planes, t_intersectInfo **o, double *max)
+void	check_planes(t_ray ray, t_list *planes, t_intersectInfo **o, \
+	double *max)
 {
 	t_intersectInfo *i;
 
@@ -19,7 +32,8 @@ void checkPlanes(t_ray ray, t_list *planes, t_intersectInfo **o, double *max)
 	}
 }
 
-void checkSpheres(t_ray ray, t_list *spheres, t_intersectInfo **o, double *max)
+void	check_spheres(t_ray ray, t_list *spheres, t_intersectInfo **o,
+	double *max)
 {
 	t_intersectInfo *i;
 
@@ -37,7 +51,9 @@ void checkSpheres(t_ray ray, t_list *spheres, t_intersectInfo **o, double *max)
 		spheres = spheres->next;
 	}
 }
-void checkCylinders(t_ray ray, t_list *cylinders, t_intersectInfo **o, double *max)
+
+void	check_cylinders(t_ray ray, t_list *cylinders, t_intersectInfo **o,
+	double *max)
 {
 	t_intersectInfo *i;
 
@@ -55,7 +71,9 @@ void checkCylinders(t_ray ray, t_list *cylinders, t_intersectInfo **o, double *m
 		cylinders = cylinders->next;
 	}
 }
-void checkCones(t_ray ray, t_list *cones, t_intersectInfo **o, double *max)
+
+void	check_cones(t_ray ray, t_list *cones, t_intersectInfo **o,
+	double *max)
 {
 	t_intersectInfo *i;
 

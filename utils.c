@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fcosnefr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/02/07 19:04:33 by fcosnefr          #+#    #+#             */
+/*   Updated: 2016/02/07 19:04:35 by fcosnefr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "RTv1.h"
 
 double		ttan(double angle)
 {
-	return (tan(angle * PI/180));
+	return (tan(angle * PI / 180));
 }
 
-t_vector 	mult(t_vector v, double val)
+t_vector	mult(t_vector v, double val)
 {
 	return (VEC((v.x * val), (v.y * val), (v.z * val)));
 }
@@ -17,25 +29,25 @@ t_vector	normalize(t_vector const v)
 	return (VEC(v.x / magnitude, v.y / magnitude, v.z / magnitude));
 }
 
-char 		find_roots(double A, double B, double C, double *t)
+char		find_roots(double a, double b, double c, double *t)
 {
 	double denominator;
 	double delta;
 	double t1;
 	double t2;
 
-	delta = ((A == 0) ? ((B * B) - C) : ((B * B) - (4 * A * C)));
-	denominator = ((A == 0) ? 1 : (2 * A));
+	delta = ((a == 0) ? ((b * b) - c) : ((b * b) - (4 * a * c)));
+	denominator = ((a == 0) ? 1 : (2 * a));
 	if (delta < 0.0f)
 		return (0);
 	if (delta != 0)
 	{
 		delta = (double)sqrt(delta);
-		*t = MIN((-B + delta) / denominator, (-B - delta) / denominator);
+		*t = MIN((-b + delta) / denominator, (-b - delta) / denominator);
 	}
 	else
 	{
-		*t = (-B) / (2 * A);
+		*t = (-b) / (2 * a);
 	}
 	return (1);
 }

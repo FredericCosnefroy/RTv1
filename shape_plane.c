@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   shape_plane.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fcosnefr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/02/07 19:11:59 by fcosnefr          #+#    #+#             */
+/*   Updated: 2016/02/07 19:12:00 by fcosnefr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "RTv1.h"
 
-t_intersectInfo 	*planeIntersection(t_plane *p, t_ray r)
+t_intersectInfo		*plane_intersection(t_plane *p, t_ray r)
 {
 	t_intersectInfo *i;
 	double			t;
